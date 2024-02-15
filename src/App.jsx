@@ -6,7 +6,11 @@ function App() {
     <>
     
       <h1>BIENVENIDOS</h1>
-      <Button />
+      <h2>Productos</h2>
+      <Button label="Producto 1"  />
+      <Button label="Producto 2" />
+      <Button label="Producto 3" />
+      <Button label="Producto 4"/>
     
     </>
   );
