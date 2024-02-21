@@ -1,11 +1,16 @@
 import Button from "./Button/Button";
+import NavBar from "./NavBar.jsx/NavBar";
+import ItemListContainer from "./ItemListContainer/ItemListContainer";
 
 function App() {
   
   return (
     <>
+          <ItemListContainer greeting={'BIENVENIDOS'}/>
+
     
-      <h1>BIENVENIDOS</h1>
+      <NavBar/>
+
       <h2>Productos</h2>
       <Button label="Producto 1"  />
       <Button label="Producto 2" />
