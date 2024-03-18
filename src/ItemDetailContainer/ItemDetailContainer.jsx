@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react'
 import { getProductById } from '../async.Mock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import './ItemDetailContainer.css'
 
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
+
+    const[carga, setCarga] = useState(true)
 
     const {itemId} = useParams()
 
@@ -18,11 +21,17 @@ const ItemDetailContainer = () => {
             .catch(error =>{
                 console.error(error)
             })
+            .finally (()=>{
+                setCarga(false)
+            })
     }, [itemId])
+
+
+
     
     return (
-        <div>
-            <ItemDetail{...product}/>
+        <div className='ItemDetailContainer'>
+            {carga ? <h1>Cargando....</h1> : <ItemDetail{...product}/>}
         </div>
     )
 }
