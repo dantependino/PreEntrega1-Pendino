@@ -5,6 +5,8 @@ import './App.css'
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
+import { CartProvider } from "./context/CartContext";
+
 
 function App() {
   
@@ -12,13 +14,15 @@ function App() {
     
     <div className="App">
       <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path="/" element={<ItemListContainer/>}/>
-          <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
-          <Route path="/item/:itemId" element={<ItemDetailContainer/>}/>
-          <Route path="*" element={<h1>ERROR</h1>}/>
-        </Routes>
+        <CartProvider>
+          <NavBar/>
+          <Routes>
+            <Route path="/" element={<ItemListContainer/>}/>
+            <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
+            <Route path="/item/:itemId" element={<ItemDetailContainer/>}/>
+            <Route path="*" element={<h1>ERROR</h1>}/>
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
 
     </div>
