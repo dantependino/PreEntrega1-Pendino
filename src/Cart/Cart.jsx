@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 const Cart = () => {
     const {cart, clearCart, totalQuantity, total} = useContext(CartContext)
 
+    const handlecheckout = () => {}
+
     if(totalQuantity === 0) {
         return (
             <div>
@@ -20,6 +22,7 @@ const Cart = () => {
             {cart.map(p => <CartItem key={p.id} {...p}/>)}
             <h3>total: ${total}</h3>
             <button onClick={() => clearCart()}>Limpiar Carrito</button>
+            <Link to="/checkout"> checkout </Link>
             
         </div>
     )
